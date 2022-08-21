@@ -9,9 +9,9 @@
 import Foundation
 import ScreenSaver
 
-class BraunBN0032Dark: ClockSkin {
+class BraunBN0032Dark: SkinConfigure {
     
-    class Scaling: NSObject, ClockSkinScaling {
+    class Scaling: NSObject, SkinScalingConfigure {
         let clockFaceHeight =  CGFloat(0.586)
         let borderWidth =      CGFloat(0.025)
         
@@ -42,7 +42,7 @@ class BraunBN0032Dark: ClockSkin {
         let handCircleRadius = CGFloat(0.025)
     }
     
-    class Color: NSObject, ClockSkinColor {
+    class Color: NSObject, SkinColorConfigure {
         let screenBackground = NSColor(red: 0.13, green: 0.125, blue: 0.1409, alpha: 1.0).cgColor
         let clockBackground = NSColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
         
@@ -56,13 +56,13 @@ class BraunBN0032Dark: ClockSkin {
         let handShadow = NSColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
     }
     
-    class Tick: NSObject, ClockSkinTick {
+    class Tick: NSObject, SkinTickConfigure {
         let totalTicks = 60
         let majorTickEveryX = 5
         let removeTickEveryX = 61
     }
     
-    class LineCap: NSObject, ClockSkinLineCap {
+    class LineCap: NSObject, SkinLineCapConfigure {
         let majorTick = CGLineCap.butt
         let minorTick = CGLineCap.butt
         
@@ -76,8 +76,8 @@ class BraunBN0032Dark: ClockSkin {
         let hourHandOverhang = CGLineCap.butt
     }
     
-    let scaling: ClockSkinScaling = Scaling()
-    let tick: ClockSkinTick = Tick()
-    let color: ClockSkinColor = Color()
-    let lineCap: ClockSkinLineCap = LineCap()
+    let scaling: SkinScalingConfigure = Scaling()
+    let tick: SkinTickConfigure = Tick()
+    let color: SkinColorConfigure = Color()
+    let lineCap: SkinLineCapConfigure = LineCap()
 }

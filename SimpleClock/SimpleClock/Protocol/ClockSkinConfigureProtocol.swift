@@ -8,15 +8,14 @@
 
 import Foundation
 
-protocol ClockSkin {
-
-    var scaling: ClockSkinScaling { get }
-    var color: ClockSkinColor { get }
-    var tick: ClockSkinTick { get }
-    var lineCap: ClockSkinLineCap { get }
+protocol SkinConfigure {
+    var scaling: SkinScalingConfigure { get }
+    var color: SkinColorConfigure { get }
+    var tick: SkinTickConfigure { get }
+    var lineCap: SkinLineCapConfigure { get }
 }
 
-protocol ClockSkinScaling {
+protocol SkinScalingConfigure {
     var clockFaceHeight: CGFloat { get }
     var borderWidth: CGFloat { get }
 
@@ -47,7 +46,7 @@ protocol ClockSkinScaling {
     var handCircleRadius: CGFloat { get }
 }
 
-protocol ClockSkinColor {
+protocol SkinColorConfigure {
     var screenBackground: CGColor { get }
     var clockBackground: CGColor { get }
 
@@ -61,13 +60,13 @@ protocol ClockSkinColor {
     var handShadow: CGColor { get }
 }
 
-protocol ClockSkinTick {
+protocol SkinTickConfigure {
     var totalTicks: Int { get }
     var majorTickEveryX: Int { get }
     var removeTickEveryX: Int { get }
 }
 
-protocol ClockSkinLineCap {
+protocol SkinLineCapConfigure {
     var majorTick: CGLineCap { get }
     var minorTick: CGLineCap { get }
 

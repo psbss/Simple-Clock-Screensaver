@@ -12,7 +12,7 @@ import ScreenSaver
 class SimpleClock: ScreenSaverView {
 
     var context: CGContext! = nil
-    var skin: ClockSkin! = nil
+    var skin: SkinConfigure! = nil
     var clockRect: NSRect! = nil
 
     func getSize(_ scalingFactor: CGFloat) -> CGFloat {

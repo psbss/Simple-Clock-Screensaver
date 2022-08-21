@@ -9,9 +9,9 @@
 import Foundation
 import ScreenSaver
 
-class KundoQuartzRepetitionWestGermanyWecker: ClockSkin {
+class KundoQuartzRepetitionWestGermanyWecker: SkinConfigure {
     
-    class Scaling: NSObject, ClockSkinScaling {
+    class Scaling: NSObject, SkinScalingConfigure {
         let clockFaceHeight =  CGFloat(0.57)
         let borderWidth =      CGFloat(0.025)
         
@@ -42,7 +42,7 @@ class KundoQuartzRepetitionWestGermanyWecker: ClockSkin {
         let handCircleRadius = CGFloat(0.03)
     }
     
-    class Color: NSObject, ClockSkinColor {
+    class Color: NSObject, SkinColorConfigure {
         let screenBackground = NSColor(srgbRed: 0.17, green: 0.1671, blue: 0.1846, alpha: 1.0).cgColor
         let clockBackground = NSColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
         
@@ -56,13 +56,13 @@ class KundoQuartzRepetitionWestGermanyWecker: ClockSkin {
         let handShadow = NSColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
     }
     
-    class Tick: NSObject, ClockSkinTick {
+    class Tick: NSObject, SkinTickConfigure {
         let totalTicks = 60
         let majorTickEveryX = 5
         let removeTickEveryX = 61
     }
     
-    class LineCap: NSObject, ClockSkinLineCap {
+    class LineCap: NSObject, SkinLineCapConfigure {
         let majorTick = CGLineCap.round
         let minorTick = CGLineCap.round
         
@@ -76,8 +76,8 @@ class KundoQuartzRepetitionWestGermanyWecker: ClockSkin {
         let hourHandOverhang = CGLineCap.round
     }
     
-    let scaling: ClockSkinScaling = Scaling()
-    let tick: ClockSkinTick = Tick()
-    let color: ClockSkinColor = Color()
-    let lineCap: ClockSkinLineCap = LineCap()
+    let scaling: SkinScalingConfigure = Scaling()
+    let tick: SkinTickConfigure = Tick()
+    let color: SkinColorConfigure = Color()
+    let lineCap: SkinLineCapConfigure = LineCap()
 }

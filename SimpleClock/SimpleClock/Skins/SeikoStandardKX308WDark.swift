@@ -9,9 +9,9 @@
 import Foundation
 import ScreenSaver
 
-class SeikoStandardKX308WDark: ClockSkin {
+class SeikoStandardKX308WDark: SkinConfigure {
 
-    class Scaling: NSObject, ClockSkinScaling {
+    class Scaling: NSObject, SkinScalingConfigure {
         let clockFaceHeight =  CGFloat(0.57)
         let borderWidth =      CGFloat(0.022)
 
@@ -42,7 +42,7 @@ class SeikoStandardKX308WDark: ClockSkin {
         let handCircleRadius = CGFloat(0.027)
     }
 
-    class Color: NSObject, ClockSkinColor {
+    class Color: NSObject, SkinColorConfigure {
         let screenBackground = NSColor(srgbRed: 0.0628, green: 0.1178, blue: 0.1187, alpha: 1.0).cgColor
         let clockBackground = NSColor(srgbRed: 0.0628, green: 0.1178, blue: 0.1187, alpha: 0).cgColor
 
@@ -56,13 +56,13 @@ class SeikoStandardKX308WDark: ClockSkin {
         let handShadow = NSColor(srgbRed: 1, green: 1, blue: 1, alpha: 1.0).cgColor
     }
 
-    class Tick: NSObject, ClockSkinTick {
+    class Tick: NSObject, SkinTickConfigure {
         let totalTicks = 60
         let majorTickEveryX = 5
         let removeTickEveryX = 61
     }
 
-    class LineCap: NSObject, ClockSkinLineCap {
+    class LineCap: NSObject, SkinLineCapConfigure {
         let majorTick = CGLineCap.butt
         let minorTick = CGLineCap.butt
 
@@ -76,8 +76,8 @@ class SeikoStandardKX308WDark: ClockSkin {
         let hourHandOverhang = CGLineCap.butt
     }
 
-    let scaling: ClockSkinScaling = Scaling()
-    let tick: ClockSkinTick = Tick()
-    let color: ClockSkinColor = Color()
-    let lineCap: ClockSkinLineCap = LineCap()
+    let scaling: SkinScalingConfigure = Scaling()
+    let tick: SkinTickConfigure = Tick()
+    let color: SkinColorConfigure = Color()
+    let lineCap: SkinLineCapConfigure = LineCap()
 }

@@ -9,9 +9,9 @@
 import Foundation
 import ScreenSaver
 
-class TimeSaverClock: ClockSkin {
+class TimeSaverClock: SkinConfigure {
     
-    class Scaling: NSObject, ClockSkinScaling {
+    class Scaling: NSObject, SkinScalingConfigure {
         let clockFaceHeight =  CGFloat(0.8)
         let borderWidth =      CGFloat(0.03)
         
@@ -42,7 +42,7 @@ class TimeSaverClock: ClockSkin {
         let handCircleRadius = CGFloat(0.032)
     }
     
-    class Color: NSObject, ClockSkinColor {
+    class Color: NSObject, SkinColorConfigure {
         let screenBackground = NSColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1).cgColor
         let clockBackground = NSColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
         
@@ -56,13 +56,13 @@ class TimeSaverClock: ClockSkin {
         let handShadow = NSColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
     }
     
-    class Tick: NSObject, ClockSkinTick {
+    class Tick: NSObject, SkinTickConfigure {
         let totalTicks = 60
         let majorTickEveryX = 5
         let removeTickEveryX = 61
     }
     
-    class LineCap: NSObject, ClockSkinLineCap {
+    class LineCap: NSObject, SkinLineCapConfigure {
         let majorTick = CGLineCap.butt
         let minorTick = CGLineCap.butt
         
@@ -76,8 +76,8 @@ class TimeSaverClock: ClockSkin {
         let hourHandOverhang = CGLineCap.butt
     }
     
-    let scaling: ClockSkinScaling = Scaling()
-    let tick: ClockSkinTick = Tick()
-    let color: ClockSkinColor = Color()
-    let lineCap: ClockSkinLineCap = LineCap()
+    let scaling: SkinScalingConfigure = Scaling()
+    let tick: SkinTickConfigure = Tick()
+    let color: SkinColorConfigure = Color()
+    let lineCap: SkinLineCapConfigure = LineCap()
 }
