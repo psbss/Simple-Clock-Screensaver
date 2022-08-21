@@ -1,5 +1,5 @@
 //
-//  SwissRailwayClockDark.swift
+//  FiveOclock.swift
 //  SimpleClock
 //
 //  Created by Pascal Wagler on 08/07/16.
@@ -9,75 +9,71 @@
 import Foundation
 import ScreenSaver
 
-class FiveOClock: ClockSkin {
+struct FiveOclock: SkinConfigure {
+    let scaling: SkinScalingConfigure = FiveOclockScaling()
+    let color: SkinColorConfigure = FiveOclockColor()
+    let tick: SkinTickConfigure = FiveOclockTick()
+    let lineCap: SkinLineCapConfigure = FiveOclockLineCap()
+}
 
-    class Scaling: NSObject, ClockSkinScaling {
-        let clockFaceHeight =  CGFloat(0.65)
-        let borderWidth =      CGFloat(0.027)
+private struct FiveOclockScaling: SkinScalingConfigure {
+    var clockFaceHeight: CGFloat = 0.65
+    var borderWidth: CGFloat = 0.027
 
-        let majorTickWidth =   CGFloat(0.033)
-        let majorTickHeight =  CGFloat(0.11)
+    var majorTickWidth: CGFloat = 0.033
+    var majorTickHeight: CGFloat = 0.11
 
-        let minorTickWidth =   CGFloat(0.014)
-        let minorTickHeight =  CGFloat(0.0340)
+    var minorTickWidth: CGFloat = 0.014
+    var minorTickHeight: CGFloat = 0.0340
 
-        let majorTickRadius =  CGFloat(0.455)
-        let minorTickRadius =  CGFloat(0.455)
+    var majorTickRadius: CGFloat = 0.455
+    var minorTickRadius: CGFloat = 0.455
 
-        let secondHandWidth =  CGFloat(0.004)
-        let secondHandHeight = CGFloat(0.345)
-        let secondHandOverhangWidth = CGFloat(0.015)
-        let secondHandOverhangHeight = CGFloat(0.15)
+    var secondHandWidth: CGFloat = 0.004
+    var secondHandHeight: CGFloat = 0.345
+    var secondHandOverhangWidth: CGFloat = 0.015
+    var secondHandOverhangHeight: CGFloat = 0.15
 
-        let minuteHandWidth =  CGFloat(0.015)
-        let minuteHandHeight = CGFloat(0.44)
-        let minuteHandOverhangWidth = CGFloat(0.015)
-        let minuteHandOverhangHeight = CGFloat(0.1)
+    var minuteHandWidth: CGFloat = 0.015
+    var minuteHandHeight: CGFloat = 0.44
+    var minuteHandOverhangWidth: CGFloat = 0.015
+    var minuteHandOverhangHeight: CGFloat = 0.1
 
-        let hourHandWidth =    CGFloat(0.015)
-        let hourHandHeight =   CGFloat(0.265)
-        let hourHandOverhangWidth = CGFloat(0.015)
-        let hourHandOverhangHeight = CGFloat(0.1)
+    var hourHandWidth: CGFloat = 0.015
+    var hourHandHeight: CGFloat = 0.265
+    var hourHandOverhangWidth: CGFloat = 0.015
+    var hourHandOverhangHeight: CGFloat = 0.1
 
-        let handCircleRadius = CGFloat(0.013)
-    }
+    var handCircleRadius: CGFloat = 0.013
+}
 
-    class Color: NSObject, ClockSkinColor {
-        let screenBackground = NSColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-        let clockBackground = NSColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+private struct FiveOclockColor: SkinColorConfigure {
+    var screenBackground: CGColor = NSColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+    var clockBackground: CGColor = NSColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
 
-        let border = NSColor(srgbRed: 0.1201, green: 0.1201, blue: 0.1201, alpha: 1.0).cgColor
-        let majorTick = NSColor(srgbRed: 0.1201, green: 0.1201, blue: 0.1201, alpha: 0).cgColor
-        let minorTick = NSColor(srgbRed: 0.1201, green: 0.1201, blue: 0.1201, alpha: 0).cgColor
+    var border: CGColor = NSColor(srgbRed: 0.1201, green: 0.1201, blue: 0.1201, alpha: 1.0).cgColor
+    var majorTick: CGColor = NSColor(srgbRed: 0.1201, green: 0.1201, blue: 0.1201, alpha: 0).cgColor
+    var minorTick: CGColor = NSColor(srgbRed: 0.1201, green: 0.1201, blue: 0.1201, alpha: 0).cgColor
 
-        let secondHand = NSColor(srgbRed: 0.7293, green: 0.1348, blue: 0.1447, alpha: 1.0).cgColor
-        let minuteHand = NSColor(srgbRed: 0.1201, green: 0.1201, blue: 0.1201, alpha: 1.0).cgColor
-        let hourHand = NSColor(srgbRed: 0.1201, green: 0.1201, blue: 0.1201, alpha: 1.0).cgColor
-        let handShadow = NSColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
-    }
+    var secondHand: CGColor = NSColor(srgbRed: 0.7293, green: 0.1348, blue: 0.1447, alpha: 1.0).cgColor
+    var minuteHand: CGColor = NSColor(srgbRed: 0.1201, green: 0.1201, blue: 0.1201, alpha: 1.0).cgColor
+    var hourHand: CGColor = NSColor(srgbRed: 0.1201, green: 0.1201, blue: 0.1201, alpha: 1.0).cgColor
+    var handShadow: CGColor = NSColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
+}
 
-    class Tick: NSObject, ClockSkinTick {
-        let totalTicks = 60
-        let majorTickEveryX = 5
-        let removeTickEveryX = 61
-    }
+private struct FiveOclockTick: SkinTickConfigure {
+    var totalTicks: Int = 60
+    var majorTickEveryX: Int = 5
+    var removeTickEveryX: Int = 61
+}
 
-    class LineCap: NSObject, ClockSkinLineCap {
-        let majorTick = CGLineCap.butt
-        let minorTick = CGLineCap.butt
-
-        let secondHand = CGLineCap.butt
-        let secondHandOverhang = CGLineCap.butt
-
-        let minuteHand = CGLineCap.butt
-        let minuteHandOverhang = CGLineCap.butt
-
-        let hourHand = CGLineCap.butt
-        let hourHandOverhang = CGLineCap.butt
-    }
-
-    let scaling: ClockSkinScaling = Scaling()
-    let tick: ClockSkinTick = Tick()
-    let color: ClockSkinColor = Color()
-    let lineCap: ClockSkinLineCap = LineCap()
+private struct FiveOclockLineCap: SkinLineCapConfigure {
+    var majorTick: CGLineCap = .butt
+    var minorTick: CGLineCap = .butt
+    var secondHand: CGLineCap = .butt
+    var secondHandOverhang: CGLineCap = .butt
+    var minuteHand: CGLineCap = .butt
+    var minuteHandOverhang: CGLineCap = .butt
+    var hourHand: CGLineCap = .butt
+    var hourHandOverhang: CGLineCap = .butt
 }
