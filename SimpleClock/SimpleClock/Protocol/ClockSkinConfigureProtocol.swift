@@ -1,5 +1,5 @@
 //
-//  ClockSkin.swift
+//  ClockSkinConfigureProtocol.swift
 //  SimpleClock
 //
 //  Created by Pascal Wagler on 08/07/16.
