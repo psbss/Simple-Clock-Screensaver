@@ -7,9 +7,9 @@
 //
 
 import Foundation
+import CoreGraphics
 
 protocol ClockSkin {
-
 	var scaling: ClockSkinScaling { get }
 	var color: ClockSkinColor { get }
 	var tick: ClockSkinTick { get }
@@ -48,7 +48,7 @@ protocol ClockSkinScaling {
 }
 
 protocol ClockSkinColor {
-	var screenBackground: CGColor { get }
+  var screenBackground: CGColor { get }
 	var clockBackground: CGColor { get }
 
 	var border: CGColor { get }

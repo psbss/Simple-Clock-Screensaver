@@ -28,8 +28,8 @@ class SimpleClock: ScreenSaverView {
 		//skin = SwissRailwayClockLight()
 		//skin = TimeSaverClock()
 		//skin = AscotClock()
-		skin = BraunBN0032Dark()
-		//skin = KundoQuartzRepetitionWestGermanyWecker()
+//		skin = BraunBN0032Dark()
+		skin = KundoQuartzRepetitionWestGermanyWecker()
 
 		//skin = SeikoStandardKX308K()
 		//skin = SeikoStandardKX308KDark()
