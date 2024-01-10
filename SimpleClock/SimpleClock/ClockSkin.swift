@@ -48,8 +48,8 @@ protocol ClockSkinScaling {
 }
 
 protocol ClockSkinColor {
-  var screenBackground: CGColor { get }
-	var clockBackground: CGColor { get }
+    var screenBackground: CGColor { get }
+    var clockBackground: CGColor { get }
 
 	var border: CGColor { get }
 	var majorTick: CGColor { get }
